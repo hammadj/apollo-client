@@ -4,6 +4,14 @@ Expect active development and potentially significant breaking changes in the `0
 
 ### vNEXT
 
+- Don't throw on unknown directives, instead just pass them through. This can open the door to implementing `@live`, `@defer`, and `@stream`, if coupled with some changes in the network layer. [PR #372](https://github.com/apollostack/apollo-client/pull/372)
+
+### v0.3.29
+
+- Made sure that query merging is only applied when we have more than one query in the batcher's queue [Issue #308](https://github.com/apollostack/apollo-client/issues/308) and [PR #369](https://github.com/apollostack/apollo-client/pull/369).
+
+### v0.3.28
+
 - Added missing export for the `addQueryMerging` method defined in the docs [here](http://docs.apollostack.com/apollo-client/network.html#addQueryMerging). [PR #364](https://github.com/apollostack/apollo-client/pull/364) and [Issue #363](https://github.com/apollostack/apollo-client/issues/363).
 - Made sure `diffSelectionSetAgainstStore` will return any available data from the local cache if `throwOnMissingField` is `false`, even if some fields in the query are missing. This also means that the `returnPartialData` option of `watchQuery` will return partial data if some fields are missing in the cache, rather than an empty object. [Issue #359](https://github.com/apollostack/apollo-client/issues/359) and [PR #360](https://github.com/apollostack/apollo-client/pull/360).
 
